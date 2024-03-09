@@ -10,6 +10,13 @@ class Skill(models.Model):
     name = models.TextField(null=True, blank=True, verbose_name="Название способности")
     effect = models.TextField(null=True, blank=True, verbose_name="Эффект способности")
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Способность'
+        verbose_name_plural = 'Способности'
+
 
 class Race(models.Model):
     name = models.TextField(null=True, blank=True, verbose_name="Название расы")
@@ -22,6 +29,13 @@ class Race(models.Model):
     wisdom_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к мудрости")
     charisma_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к харизме")
     skills = models.ManyToManyField(Skill, blank=True, verbose_name="Способности")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Раса'
+        verbose_name_plural = 'Расы'
 
 
 class Character(models.Model):
@@ -41,6 +55,9 @@ class Character(models.Model):
     current_mana = models.IntegerField(null=True, blank=True, verbose_name="Текущая мана")
     armor_class = models.IntegerField(null=True, blank=True, verbose_name="Класс доспеха")
     skills = models.ManyToManyField(Skill, blank=True, verbose_name="Способности")
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = 'Персонаж'
