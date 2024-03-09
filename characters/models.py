@@ -40,6 +40,7 @@ class Character(models.Model):
     current_health = models.IntegerField(null=True, blank=True, verbose_name="Текущее здоровье")
     current_mana = models.IntegerField(null=True, blank=True, verbose_name="Текущая мана")
     armor_class = models.IntegerField(null=True, blank=True, verbose_name="Класс доспеха")
+    skills = models.ManyToManyField(Skill, blank=True, verbose_name="Способности")
 
     class Meta:
         verbose_name = 'Персонаж'
