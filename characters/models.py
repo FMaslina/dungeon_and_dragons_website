@@ -5,10 +5,23 @@ from django.db import models
 User = get_user_model()
 
 
+class Race(models.Model):
+    name = models.TextField(null=True, blank=True, verbose_name="Название расы")
+    start_character_stat_points = models.IntegerField(null=True, blank=True,
+                                                      verbose_name="Количество очков характеристик")
+    strength_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к силе")
+    dexterity_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к ловкости")
+    constitution_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к телосложению")
+    intelligence_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к интеллекту")
+    wisdom_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к мудрости")
+    charisma_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к харизме")
+    # skills = models.ManyToManyField(Skill, null=True, blank=True, verbose_name="Способности")
+
+
 class Character(models.Model):
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name="Владелец")
     name = models.TextField(null=True, blank=True, verbose_name="Имя")
-    # race = models.ForeignKey(to=Race, on_delete=models.CASCADE, verbose_name="Раса")
+    race = models.ForeignKey(to=Race, on_delete=models.CASCADE, verbose_name="Раса")
     avaliable_stat_points = models.IntegerField(null=True, blank=True, verbose_name="Доступные очки характеристик")
     strength = models.IntegerField(null=True, blank=True, verbose_name="Сила")
     dexterity = models.IntegerField(null=True, blank=True, verbose_name="Ловкость")
