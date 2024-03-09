@@ -5,6 +5,12 @@ from django.db import models
 User = get_user_model()
 
 
+# TODO: Додумать реализацию способностей
+class Skill(models.Model):
+    name = models.TextField(null=True, blank=True, verbose_name="Название способности")
+    effect = models.TextField(null=True, blank=True, verbose_name="Эффект способности")
+
+
 class Race(models.Model):
     name = models.TextField(null=True, blank=True, verbose_name="Название расы")
     start_character_stat_points = models.IntegerField(null=True, blank=True,
@@ -15,7 +21,7 @@ class Race(models.Model):
     intelligence_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к интеллекту")
     wisdom_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к мудрости")
     charisma_bonus = models.IntegerField(null=True, blank=True, verbose_name="Бонус к харизме")
-    # skills = models.ManyToManyField(Skill, null=True, blank=True, verbose_name="Способности")
+    skills = models.ManyToManyField(Skill, blank=True, verbose_name="Способности")
 
 
 class Character(models.Model):
