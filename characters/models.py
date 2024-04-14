@@ -42,7 +42,7 @@ class Character(models.Model):
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE, verbose_name="Владелец")
     name = models.TextField(null=True, blank=True, verbose_name="Имя")
     race = models.ForeignKey(to=Race, on_delete=models.CASCADE, verbose_name="Раса")
-    avaliable_stat_points = models.IntegerField(null=True, blank=True, verbose_name="Доступные очки характеристик")
+    available_stat_points = models.IntegerField(null=True, blank=True, verbose_name="Доступные очки характеристик")
     strength = models.IntegerField(null=True, blank=True, verbose_name="Сила")
     dexterity = models.IntegerField(null=True, blank=True, verbose_name="Ловкость")
     constitution = models.IntegerField(null=True, blank=True, verbose_name="Телосложение")
