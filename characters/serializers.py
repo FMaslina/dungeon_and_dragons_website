@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from dungeon_and_dragons.characters.models import Skill, Race
+from dungeon_and_dragons.characters.models import Skill, Race, Character
 
 
 class SkillSerializer(serializers.ModelSerializer):
@@ -11,4 +11,10 @@ class SkillSerializer(serializers.ModelSerializer):
 class RaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Race
+        fields = "__all__"
+
+
+class CharacterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Character
         fields = "__all__"
