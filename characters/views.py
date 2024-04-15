@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from dungeon_and_dragons.characters.models import Skill
-from dungeon_and_dragons.characters.serializers import SkillSerializer
+from dungeon_and_dragons.characters.models import Skill, Race
+from dungeon_and_dragons.characters.serializers import SkillSerializer, RaceSerializer
 
 
 class SkillCreate(generics.CreateAPIView):
@@ -27,4 +27,28 @@ class SkillList(generics.ListAPIView):
 class SkillUpdate(generics.UpdateAPIView):
     queryset = Skill.objects.all()
     serializer_class = SkillSerializer
-    
+
+
+class RaceCreate(generics.CreateAPIView):
+    queryset = Race.objects.all()
+    serializer_class = RaceSerializer
+
+
+class RaceGet(generics.RetrieveAPIView):
+    queryset = Race.objects.all()
+    serializer_class = RaceSerializer
+
+
+class RaceDelete(generics.DestroyAPIView):
+    queryset = Race.objects.all()
+    serializer_class = RaceSerializer
+
+
+class RaceList(generics.ListAPIView):
+    queryset = Race.objects.all()
+    serializer_class = RaceSerializer
+
+
+class RaceUpdate(generics.UpdateAPIView):
+    queryset = Race.objects.all()
+    serializer_class = RaceSerializer
